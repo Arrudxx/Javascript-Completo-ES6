@@ -9,6 +9,7 @@ import initMenuMobile from "./modules/menu-mobile.js";
 
 import initDateObject from "./modules/date-object.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
+import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
 initScrollSuave();
 intAnimacaoScroll();
@@ -18,6 +19,6 @@ initModal();
 initTooltip();
 initDropdownMenu();
 initMenuMobile();
-
 initDateObject();
 initFetchAnimais();
+initFetchBitcoin();

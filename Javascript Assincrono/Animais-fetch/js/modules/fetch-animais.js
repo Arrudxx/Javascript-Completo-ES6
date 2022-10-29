@@ -1,16 +1,21 @@
 import initAnimaNumeros from "./anima-numeros.js";
 
 export default function initFetchAnimais() {
-  async function fetchAnimais(url) {
-    const animaisResponse = await fetch(url);
-    const animaisJson = await animaisResponse.json();
-    const numerosGrid = document.querySelector(".numeros-grid");
+  try {
+    async function fetchAnimais(url) {
+      const animaisResponse = await fetch(url);
+      const animaisJson = await animaisResponse.json();
+      const numerosGrid = document.querySelector(".numeros-grid");
 
-    animaisJson.forEach((animal) => {
-      const divAnimal = creatAnimal(animal);
-      numerosGrid.appendChild(divAnimal);
-    });
-    initAnimaNumeros();
+      animaisJson.forEach((animal) => {
+        const divAnimal = creatAnimal(animal);
+        numerosGrid.appendChild(divAnimal);
+      });
+      initAnimaNumeros();
+      fetchAnimais("./animaisapi.json");
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   function creatAnimal(animal) {
@@ -21,6 +26,4 @@ export default function initFetchAnimais() {
 
     return div;
   }
-
-  fetchAnimais("./animaisapi.json");
 }
