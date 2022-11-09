@@ -1,44 +1,62 @@
-//REST
+//DESTRUCTURING OBJECTS
 
-// function perimetroForma(lado, totalLados, ...listaArgumentos) {
-//   console.log(listaArgumentos);
-//   console.log(arguments);
-//   return lado * totalLados;
-// }
+// const cliente = {
+//   nome: "Andre",
+//   compras: {
+//     digitais: {
+//       livros: ["Livro 1", "Livro 2"],
+//       videos: ["Video JS", "Video HTML"],
+//     },
+//     fisicas: {
+//       cadernos: ["Caderno 1"],
+//     },
+//   },
+// };
 
-// console.log(perimetroForma(10, 20, 30, "oi", "teste"));
+// console.log(cliente.compras.digitais.livros);
+// console.log(cliente.compras.digitais.videos);
 
-//SPREAD
+// const {
+//   digitais,
+//   fisicas,
+//   digitais: { livros, videos },
+// } = cliente.compras;
 
-// const frutas = ["banana", "uva", "morango"];
-// const legumes = ["cenoura", "batata"];
+// console.log(digitais);
 
-// const comidas = [...frutas, "Pizza", ...legumes];
+//NOME DAS VARIÁVEIS
+// É necessário indicar o nome da propriedade que você deseja desestruturar de um objeto. É possível mudar o nome da variável final com:
 
-// console.log(comidas);
+// const cliente = {
+//   nome: "Andre",
+//   compras: 10,
+//   email: "daniel@gmail.com",
+// };
 
-////////////////////////////////////////////////////////////
+// const { nome: nomeAndre, email = "email@gmail.com" } = cliente;
 
-// function anunciarGanhadores(premio, ...ganhadores) {
-//   ganhadores.forEach((ganhador) => {
-//     console.log(ganhador + " ganhou um " + premio);
-//   });
-// }
+// console.log(nomeAndre);
+// console.log(email);
 
-// const ganhadores = ["Pedro", "Marta", "Beto"];
+// DESTRUCTURING ARRAYS
+// Para desestruturar array's você deve colocar as variáveis entre [] colchetes.
 
-// anunciarGanhadores("carro", ...ganhadores);
+// const frutas = ["Banana", "Uva", "Morango"];
 
-// const todosOsNumeros = [2, 5, 48, 54, 48, 6, 52, 7];
-// const numeroMaximo = Math.max(...todosOsNumeros);
+// const [primeira, segunda, terceira] = frutas;
 
-// console.log(numeroMaximo);
+// console.log(segunda);
 
-// TRANSFORMAR EM ARRAY
-// É possível transformar itens iteráveis em uma array real com o spread.
+// const [primeiro, segundo, terceiro] = ["Item 1", "Item 2", "Item 3"];
 
-const btns = document.querySelectorAll("button");
+// console.log(segundo);
 
-console.log(btns);
+// ARGUMENTO DESESTRUTURADO
+// Se uma função espera receber como argumento um objeto, podemos desestruturar ele no momento da declaração.
 
-const btnsArray = [...btns];
+function handleKeyboard({ key, keyCode }) {
+  // estou usando {params} para desetruturar
+  console.log(key, keyCode);
+}
+
+document.addEventListener("keyup", handleKeyboard);

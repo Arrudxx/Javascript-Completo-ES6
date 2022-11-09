@@ -1,45 +1,44 @@
-const frutas = ["Banana", "Morango", "Uva"];
-// const frase = "Isso é JavaScript";
+//REST
 
-// for (const fruta of frutas) {
-//   console.log(fruta);
+// function perimetroForma(lado, totalLados, ...listaArgumentos) {
+//   console.log(listaArgumentos);
+//   console.log(arguments);
+//   return lado * totalLados;
 // }
 
-// // for (const char of frase) {
-// //   console.log(char);
-// // }
+// console.log(perimetroForma(10, 20, 30, "oi", "teste"));
 
-// const buttons = document.querySelectorAll("button");
+//SPREAD
 
-// for (const btn of buttons) {
-//   btn.style.color = "blue";
+// const frutas = ["banana", "uva", "morango"];
+// const legumes = ["cenoura", "batata"];
+
+// const comidas = [...frutas, "Pizza", ...legumes];
+
+// console.log(comidas);
+
+////////////////////////////////////////////////////////////
+
+// function anunciarGanhadores(premio, ...ganhadores) {
+//   ganhadores.forEach((ganhador) => {
+//     console.log(ganhador + " ganhou um " + premio);
+//   });
 // }
 
-// console.log(...buttons);
+// const ganhadores = ["Pedro", "Marta", "Beto"];
 
-const carro = {
-  marca: "Honda",
-  ano: 2018,
-};
+// anunciarGanhadores("carro", ...ganhadores);
 
-Object.defineProperties(carro, {
-  rodas: {
-    value: 4,
-    enumerable: true,
-  },
-});
+// const todosOsNumeros = [2, 5, 48, 54, 48, 6, 52, 7];
+// const numeroMaximo = Math.max(...todosOsNumeros);
 
-for (const key in carro) {
-  console.log(carro[key]);
-}
+// console.log(numeroMaximo);
 
-for (const f in frutas) {
-  console.log(frutas[f]);
-}
+// TRANSFORMAR EM ARRAY
+// É possível transformar itens iteráveis em uma array real com o spread.
 
-const btnUnico = document.querySelector("button");
-const btnStyles = getComputedStyle(btnUnico);
+const btns = document.querySelectorAll("button");
 
-for (const style in btnStyles) {
-  console.log(`${style}: ${btnStyles[style]}`);
-}
+console.log(btns);
+
+const btnsArray = [...btns];
